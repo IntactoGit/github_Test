@@ -7,47 +7,43 @@
             Console.WriteLine("Введите первое число:");
             var firstNumber = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine($"Выберите команду: " +
-                              $"\n" 
-                              +$"1. + \n" 
-                              +$"2. - \n" 
-                              +$"3. * \n" 
-                              +$"4. / \n");
+            Console.WriteLine($"Выберите команду: \n" +
+                              $"1. Сложить числа \n" +
+                              $"2. Вычесть числа \n" + 
+                              $"3. Умножить числа \n"+
+                              $"4. Поделить числа \n");
 
-            var choice = Convert.ToInt32(Console.ReadLine());
+            var operation = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Введите второе число:");
             var secondNumber = Convert.ToDouble(Console.ReadLine());
-            CalculateOperation(choice, firstNumber, secondNumber);
+            CalculateOperation(operation, firstNumber, secondNumber);
             
         }
     }
-    private static void CalculateOperation(int choice, double firstNumber, double secondNumber)
+    private static void CalculateOperation(string operation, double firstNumber, double secondNumber)
     {
-        switch (choice)
+        double result;
+        switch (operation)
         {
-            case 1:
-            {
-                var sum = firstNumber + secondNumber;
-                Console.WriteLine("Результат сложения " + sum);
+            case "+":
+                result = firstNumber + secondNumber;
+                Console.WriteLine("Результат: " + result);
                 break;
-            }
-            case 2:
-            {
-                var difference = firstNumber - secondNumber;
-                Console.WriteLine("Результат вычитания " + difference);
+            case "-":
+                result = firstNumber - secondNumber;
+                Console.WriteLine("Результат: " + result);
                 break;
-            }
-            case 3:
-            {
-                var product = firstNumber * secondNumber;
-                Console.WriteLine("Результат умножения " + product);
+            case "*":
+                result = firstNumber * secondNumber;
+                Console.WriteLine("Результат: " + result);
                 break;
-            }
-            case 4:
-            {
-                var quotient = firstNumber - secondNumber;
-                Console.WriteLine("Результат деления " + quotient);
+            case "/":
+                result = firstNumber / secondNumber;
+                Console.WriteLine("Результат: " + result);
+                break;
+            default:
+                Console.WriteLine("Выбрана неверная операция.");
                 break;
             }
         }
